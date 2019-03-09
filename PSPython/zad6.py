@@ -26,8 +26,9 @@ def integerToRome(base_ten):
     return ''.join(roman_numerals)
 
 
+if __name__ == '__main__':
+    integerToRome(1234)
 
     
 
 
-integerToRome(1234)

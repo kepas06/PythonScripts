@@ -1,7 +1,7 @@
 import re
 
-def (string):
-    regEphoneNumxpres = re.compile(r"[+]\d\d[\s]\d\d\d[\s-]\d\d\d[\s-]\d\d\d")
+def phoneNum(string):
+    regExpres = re.compile(r"[+]\d\d[\s]\d\d\d[\s-]\d\d\d[\s-]\d\d\d")
     find = re.findall(regExpres,string)
     print(find)
 

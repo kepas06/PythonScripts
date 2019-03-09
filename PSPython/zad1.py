@@ -3,7 +3,7 @@ def sum_digits(n):
     #print(x)
     return x
 
-dupa
+
 def allPrimers(start,end):
     lst = [] 
     for x in range(start,end+1):
