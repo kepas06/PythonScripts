@@ -10,33 +10,14 @@ def myDict():
 def main():
     alph = myDict()
 
-    while True:
-        print("Wybierz opcje")
-        print("1. encoded - zakodowanie 2. decoded zaszyfrowanie")
-        choice = str(input())
-        if choice == 'encode':
-            print("wybierz przesuniecie")
-            shift = input()
-            obj = CaesarCypher(alph, shift, choice)
-            obj.input()
-            obj.encode()
-            obj.write_results()
-            print("czy chcialbys zakonczyc  ? tak/nie")
-            choice2 = str(input()) 
-            if choice2 == 'tak':
-                break
-        elif choice == 'decode':
-            print("wybierz przesuniecie i kierunek right/left")
-            shift = input()
-            direction = input()        
-            obj = CaesarCypher(alph, shift, choice)
-            obj.input()
-            obj.decode(direction)
-            obj.write_results()
-            print("czy chcialbys zakonczyc  ? tak/nie")
-            choice2 = str(input())
-            if choice == 'tak':
-                break
+    obj = CaesarCypher(alph, 35)
+    obj.input('to_code.txt')
+    obj.encode()
+
+    obj2 = CaesarCypher(alph, 35)
+    obj2.input('encoded.txt')
+    obj2.decode('right')
+
 
 
 if __name__ == "__main__":

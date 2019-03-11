@@ -5,8 +5,6 @@ def pitagoras(start, end):
             for z in range(start, end):
                 if x*x + y*y == z*z:
                     emptyLst.append((x,y,z))
-                else:
-                    pass
     print(emptyLst)
 
 

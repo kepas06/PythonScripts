@@ -1,6 +1,6 @@
 0 ,##123
 ABC
 XYZ
-abc ABCxyz XYZ
+ABC ABCXYZ XYZ
 123 789
 !@#$%^&*().,
