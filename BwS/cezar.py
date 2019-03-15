@@ -10,15 +10,13 @@ def myDict():
 def main():
     alph = myDict()
 
-    obj = CaesarCypher(alph, 35)
+    obj = CaesarCypher(alph)
     obj.input('to_code.txt')
-    obj.encode()
-
-    obj2 = CaesarCypher(alph, 35)
-    obj2.input('encoded.txt')
-    obj2.decode('right')
-
-
+    obj.input_pattern('to_code2.txt')
+    
+    obj.comparsion(alph)
+    obj.decode('right',3)
+    
 
 if __name__ == "__main__":
     main()
