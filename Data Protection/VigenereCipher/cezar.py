@@ -18,7 +18,7 @@ class CaesarCypher():
 
         """ Wprowadzanie pliku do zakodowania """
 
-        file = open(choice)
+        file = open(choice)  
         num_of_char = os.stat(choice).st_size
 
         if num_of_char > 1000:
@@ -125,6 +125,10 @@ class CaesarCypher():
         n2 = 0
         counter = 0
 
+        print(patMComm)
+        print("")
+        print(cipMComm)
+
         for x in alph:
             if x == patMComm[0][0]:
                 n1 = alph.index(x)
@@ -145,4 +149,6 @@ class CaesarCypher():
         else:
             return self.possibleKey
 
+        print("")
+        print(" mozliwy klucz to: " + str(self.possibleKey))
         return self.possibleKey

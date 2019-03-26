@@ -7,6 +7,7 @@ def myDict():
     return lst
 
 
+
 def main():
     alph = myDict()
 

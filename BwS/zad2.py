@@ -9,5 +9,5 @@ def pitagoras(start, end):
 
 
 if __name__ == '__main__':
-    pitagoras(200,800)
+    pitagoras(10,20)
 

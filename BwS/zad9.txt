@@ -195,4 +195,13 @@ in 24
 is 21
 on 20
 for 15
+with 15the 47
+of 42
+to 40
+a 35
+and 32
+in 24
+is 21
+on 20
+for 15
 with 15
