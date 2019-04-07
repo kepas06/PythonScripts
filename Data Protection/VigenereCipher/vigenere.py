@@ -24,7 +24,6 @@ class VigenereCipher():
                 container += line.upper()
         file.close()
 
-
     def encode(self,key, container):
 
         """ Szyfrowanie danych  """
@@ -33,7 +32,7 @@ class VigenereCipher():
         counter = 0
  
         key_val = [self.dict.index(x.upper()) if x.upper() in self.dict else x for x in key ]
-        text_val = [self.dict.index(x) if x in self.dict else x for x in container    ]
+        text_val = [self.dict.index(x) if x in self.dict else x for x in container  ]
    
         for x in text_val:
             if counter == len(key_val):
@@ -60,8 +59,6 @@ class VigenereCipher():
         key_val = [self.dict.index(x.upper()) for x in key if x.upper() in self.dict]
         text_val = [self.dict.index(x) if x in self.dict else x for x in container ]
 
-        print(key_val)
-        print(text_val)
         counter = 0
 
         for x in text_val:
@@ -88,12 +85,11 @@ class VigenereCipher():
     def friedman_method(self, containerPattern, containerCipher ):
         container_pattern = [x for x in containerPattern if x in self.dict ]
         container_cipher = [x for x in containerCipher if x in self.dict ]
+  
 
         commonPat = self.mostCommon(container_pattern)
-        commonCip = self.mostCommon(container_cipher)
 
         sumUp = float(sum([ x[1]*(x[1]-1) for x in commonPat]))
-
         sumDown = float(sum([x[1] for x in commonPat]) *( sum([x[1] for x in commonPat]) - 1))
 
         icPattern = float(sumUp/sumDown)
@@ -115,7 +111,7 @@ class VigenereCipher():
             for y in x:
                 avg += self.indexOfCoincidence(y)
                 
-            elem = [ len(x),(avg/len(x))]
+            elem = [len(x),(avg/len(x))]
             lstOfIc.append(elem)
             avg = 0
         
@@ -150,13 +146,6 @@ class VigenereCipher():
         
         return sort_val
 
-    # def indexOfCoincidence(self, text):
-
-    # """ Znajdywanie najczęściej występujących znakow """
-
-    #     lst = self.mostCommon(text)
-    
-    #     return sort_val    
         
     def frequency(self,container):
 
