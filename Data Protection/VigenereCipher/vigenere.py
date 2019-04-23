@@ -33,13 +33,15 @@ class VigenereCipher():
  
         key_val = [self.dict.index(x.upper()) if x.upper() in self.dict else x for x in key ]
         text_val = [self.dict.index(x) if x in self.dict else x for x in container  ]
-   
+
+       
         for x in text_val:
             if counter == len(key_val):
                 counter = 0
             if isinstance(x,str):
                 x_val = x
                 self.cipher_text.append(x_val)
+                counter -= 1
             else:
                 x_val = (key_val[counter] + x) % 27
                 self.cipher_text.append(x_val)
@@ -52,15 +54,15 @@ class VigenereCipher():
         f.close()
         return self.cipher_text_coded
 
-    def decode(self, key, container):
+    def decode(self, key):
 
         """ Odkodowywanie Danych  """
         
         key_val = [self.dict.index(x.upper()) for x in key if x.upper() in self.dict]
-        text_val = [self.dict.index(x) if x in self.dict else x for x in container ]
+        text_val = [self.dict.index(x) if x in self.dict else x for x in self.cipher_text_coded ]
 
         counter = 0
-
+        
         for x in text_val:
             if counter == len(key_val):
                 counter = 0
@@ -68,11 +70,12 @@ class VigenereCipher():
                 self.decoded_cipher.append(x)
                 counter -= 1
             elif isinstance(x,int):
-                self.decoded_cipher.append(((x - key_val[counter] )) % 27 )
+                self.decoded_cipher.append(((x - key_val[counter] + 27 )) % 27 )
              
             counter += 1
 
         self.decoded_cipher_values = [ self.dict[x] if isinstance(x, int) else x for x in  self.decoded_cipher]
+
 
 
         
@@ -84,7 +87,7 @@ class VigenereCipher():
 
     def friedman_method(self, containerPattern, containerCipher ):
         container_pattern = [x for x in containerPattern if x in self.dict ]
-        container_cipher = [x for x in containerCipher if x in self.dict ]
+        container_cipher = [x for x in self.cipher_text_coded if x in self.dict ]
   
 
         commonPat = self.mostCommon(container_pattern)
@@ -100,7 +103,7 @@ class VigenereCipher():
         cipher_string = ''.join(container_cipher)
 
           
-        for x in range(2,20):
+        for x in range(2,21):
             h = x
             tables = [[ x for x in cipher_string[i::h]] for i in range(h)]
             lst.append(tables)
@@ -114,9 +117,13 @@ class VigenereCipher():
             elem = [len(x),(avg/len(x))]
             lstOfIc.append(elem)
             avg = 0
+
+        print("ic dla patternu to " + str(icPattern))
+        print("")
+        for _ in lstOfIc:
+            print(_)
         
-        print(icPattern)
-        print(lstOfIc)
+        
 
 
 
